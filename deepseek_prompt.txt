@@ -1,0 +1,5 @@
+用crawl4ai爬取https://www.wattpad.com网站的小说，并做如下操作：
+# 识别原文中的人名和地名，结合小说的描述对人名有一个外在的描述。人名储存在一个文件中，格式为：[人名][描述]，人名和地名储存在另一个文件中，格式为：人名/地名-中文译文。
+# 使用AI将爬取的英文内容分割成StoryDiffusion能识别的Comic Description， 格式为：[人名] Comic Description。大约每一千个字生成20个Comic Description，结果保存在相应文件夹中，文件名称：章节序号+ComicDiscription。
+# 将英文内容翻译成中文，人名和地名要和第一步文件中的翻译内容一致，中文要对应第二部的Comic Description，每一段对应的中文要给出对应Comic Description的标识。
+# 润色翻译好的中文，让文章和原创一样没有翻译的痕迹。并将润色好的中文保存在相应的文件夹中，文件名称为：章节序号+大模型根据内容自己取的名字
