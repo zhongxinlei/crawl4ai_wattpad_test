@@ -199,5 +199,5 @@ def find_and_replace_in_files(folder_path, search_string, replace_string=None, f
 
 
 if __name__ == "__main__":
-    find_and_replace_in_files('./polished', 'Violence')
+    find_and_replace_in_files('./raw_novel_test', 'Ace')
     # find_english_characters('./polished')

@@ -27,3 +27,9 @@ Thumbs.db
 
 # OSX miscellaneous
 .DS_Store
+
+comic_descriptions/
+link_folder/
+raw_novel/
+raw_novel_test/
+translated/

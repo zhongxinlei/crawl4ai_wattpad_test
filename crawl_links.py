@@ -10,7 +10,10 @@ from bs4 import BeautifulSoup
 import os
 import re
 
-jsonl_path = "link_folder/Apocalypse:-hird-Rebirth_output.jsonl"
+link_url = "https://www.wattpad.com/story/346936134-ch200%2B-continued-dungeon-diver-stealing-a"
+novel_name = "Dungeon-Diver-2"
+output_path = f"link_folder/{novel_name}_output.jsonl"
+jsonl_path = f"link_folder/{novel_name}_output.jsonl"
 raw_novel_path = "raw_novel/"
 
 
@@ -59,9 +62,6 @@ def fetch_and_save_content(url):
 
 
 async def extract_crypto_prices():
-    link_url = "https://www.wattpad.com/story/385006013-2-apocalypse-third-rebirth"
-    novel_name = "Apocalypse:-hird-Rebirth"
-    output_path = f"link_folder/{novel_name}_output.jsonl"
     # 1. Define a simple extraction schema
     schema = {
         "name": "chapter links",
@@ -192,19 +192,19 @@ async def crawl_novel(chapter_name, url):
             if len(data) < 50 and chapter_name != 'Chapter 200':
                 print(f'data length less than 50! need double check: {chapter_name}')
             # else:
-                content = ''
-                for p_tag in data:
-                    text = p_tag.get('chapter_content')
-                    if text:  # 确保内容非空
-                        if content == '':
-                            content = text
-                        else:
-                            content = content + '\n\n' + text
-                # 写入内容到文件
-                output_file_path = os.path.join(raw_novel_path, clean_chapter_name(chapter_name))
-                with open(output_file_path, 'w', encoding='utf-8') as outfile:
-                    outfile.write(content + '\n\n')  # 写入内容并添加空行分段
-                    print(f"Content saved to {output_file_path}")
+            content = ''
+            for p_tag in data:
+                text = p_tag.get('chapter_content')
+                if text:  # 确保内容非空
+                    if content == '':
+                        content = text
+                    else:
+                        content = content + '\n\n' + text
+            # 写入内容到文件
+            output_file_path = os.path.join(raw_novel_path, clean_chapter_name(chapter_name))
+            with open(output_file_path, 'w', encoding='utf-8') as outfile:
+                outfile.write(content + '\n\n')  # 写入内容并添加空行分段
+                print(f"Content saved to {output_file_path}")
 
             return None
     except Exception as e:
