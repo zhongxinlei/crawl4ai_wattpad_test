@@ -337,14 +337,14 @@ class WattpadProcessor:
 async def main(chapter_name, chapter_content, processor):
     tasks = []
     print(f"\n📖 正在处理第 {chapter_name} 章（{len(chapter_content)} 字符）")
-    # await processor.process_entities(chapter_content)
+    await processor.process_entities(chapter_content)
     # tasks.append(asyncio.create_task(processor.generate_comic_descriptions(chapter_content, chapter_name)))
-    tasks.append(asyncio.create_task(processor.translate_content(chapter_content, chapter_name)))
+    # tasks.append(asyncio.create_task(processor.translate_content(chapter_content, chapter_name)))
     # tasks.append(asyncio.create_task(processor.polish_translation(chapter_name)))
-    with tqdm_asyncio(total=len(tasks), desc="处理进度") as pbar:
-        for task in asyncio.as_completed(tasks):
-            await task
-            pbar.update(1)
+    # with tqdm_asyncio(total=len(tasks), desc="处理进度") as pbar:
+    #     for task in asyncio.as_completed(tasks):
+    #         await task
+    #         pbar.update(1)
 
     print("\n✅ 处理完成！结果保存在 crawl_wattpad/ 目录中")
 

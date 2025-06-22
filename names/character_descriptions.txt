@@ -324,3 +324,118 @@
 [Damien S.][B-Class Hunter] Damien S. is a B-Class Hunter with tan skin and jaded eyes, wearing an Association uniform.
 [Emerald Warrior] Here is a full sentence with less than 100 letters describing Emerald Warrior's appearance and character: ;Emerald Warrior, Abby, wears a ring of alteration.
 [Wraith] Wraith: a 3.5m tall skeleton in tattered black cloak.
+[my Qi Capacity] Here is a full sentence with less than 100 letters describing your Qi Capacity: ;It feels drained.
+[My Red Hydra's] My Red Hydra has no description.
+[Enchanted Lightweight] Enchanted Lightweight Gauntlets are shiny silver metal.
+[my Appraisal Skill] Here is a full sentence describing your Appraisal Skill in less than 100 letters:;Your Appraisal Skill appears as an analytical eye.
+[Galeheart] Galeheart is not described.
+[Void Creeper's Rifts] Here is a full sentence with less than 100 letters describing Void Creeper's Rifts:;Void Creeper's Rifts are large, jet-black tears in space.
+[Enchanted Lizardman's] Enchanted Lizardman has no description.
+[max MP] Max MP is not described.
+[Luminite] Luminite is a rare ore with a bright white glow.
+[Unique Buff] Here is a sentence with less than 100 letters describing Unique Buff: ;Unique Buff has no appearance.
+[Brown Wyvern's] Brown Wyvern is brown.
+[the Brown Wyvern] The Brown Wyvern is brown.
+[Wyverns] Wyverns are brown or colored creatures.
+[Freeman] Here is a full sentence with less than 100 letters describing Freeman: ;Freeman is a large shadowy figure.
+[Combat Magic][Extreme Wind Summoning] Here is a full sentence with less than 100 letters describing Combat Magic][Extreme Wind Summoning: ;It has no appearance described.
+[Matthews] Here is a full sentence with less than 100 letters describing Matthews: ;Matthews is Vice Region Director, also known as Brutus.
+[Fin] Fin is a man with no detailed appearance description.
+[Green Mist] Green Mist wears green armor, has a buzzcut, and black eyes.
+[Crimson Dagger] Crimson Dagger leader has red armor and spiky ginger hair.
+[my Qi Barrier's] Here is a full sentence with less than 100 letters describing your Qi Barrier:;My Qi barrier limits mana control to 50% of its strength.
+[Luna] Luna has a unique perception skill.
+[a Greater Demon] The Greater Demon is a 3-meter tall, dark red armored figure with sharp eyes and two red horns.
+[Domain Milestone] Here is a full sentence with less than 100 letters describing Domain Milestone:;Domain Milestone has no appearance, dressing, or character description.
+[pierce] Pierce is not described.
+[The Lich King] The Lich King has no description.
+[glass] Here is a sentence describing the glass in the text, under 100 letters:;Glass contains mana crystals with Flash skill inside.
+[Greater Wraith's] Greater Wraiths have no description.
+[Bronze Flame Emperor's] Bronze Flame Emperor has no description.
+[Silver Flame Emperor's] Here is a full sentence with less than 100 letters describing the Silver Flame Emperor's coin: ;Silver Flame Emperor's Coin has a dragon silhouette.
+[Finn] Finn is a grunt with a [Bind] ability.
+[Wolf Guardian's] Here is a sentence with less than 100 letters describing Wolf Guardian's appearance and character: ;Wolf Guardian has sharp fangs.
+[Tower] Here is a full sentence with less than 100 letters describing Tower:;Galeheart Tower has no detailed appearance description.
+[Qi Pills] Here is a full sentence describing Qi Pills in less than 100 letters:;Qi Pills are white pills that fill the body with hot energy.
+[sun] The sun is described as red-orange.
+[Harper] Here is a full sentence with less than 100 letters describing Harper: ;Harper has no description.
+[the Flame Emperor's] The Flame Emperor has no description.
+[The Crimson City] The Crimson City has no description.
+[Qi Barrier] Here is a full sentence with less than 100 letters describing Qi Barrier's appearance: ;Qi Barrier appears as maximum density.
+[Maurice] Maurice is a short man with a thick dark beard and mustache.
+[Maurice Ablemen] Maurice Ablemen is a short man with a thick dark beard and mustache.
+[Dan Striker] Dan Striker is a tall man with blond hair, piercing green eyes, and a chiseled jaw.
+[my Qi Barrier] Here is a full sentence with less than 100 letters describing your Qi Barrier:;"My Qi Barrier emits a tiny amount of mana."
+[Leonard Mayson III] Leonard Mayson III is a man with a steady gaze.
+[Tracey] Here is a full sentence describing Tracey in less than 100 letters:;;Tracey is an older woman who works at Unity Building Supply Co.
+[Leonard Mayson II] Leonard Mayson II is an old man, seemingly near death, with a raspy breath.
+[Mayson] Here is a full sentence with less than 100 letters describing Mayson's appearance and character: ;Mayson is a professional man with glasses.
+[Eye] Here is a full sentence describing the Eye with less than 100 letters:;The All-seeing Eye expands to scan the city.
+[The Lich King's] The Lich King is not described.
+[Wind Tyrant's] Wind Tyrant is not described.
+[Dual Wielding] Dual Wielding is a skill used with daggers.
+[orange mist] Here is a full sentence describing Orange Mist in less than 100 letters:;Orange mist appears as a dense layer coating wind magic.
+[Desert Hawk's] Here is a full sentence describing Desert Hawk's appearance, dressing, and character in under 100 letters:;;Desert Hawk is a winged creature with orange soul energy.
+[Francis] Francis is a short, bulky blond-haired man.
+[Andy] Andy is a thin, dark-featured young man with a handsome face.
+[Rachel] Rachel has orange hair, freckles, athletic build, and sharp eyes.
+[Extreme Grade][Lightning Stone] Here is a full sentence with less than 100 letters describing the Extreme Grade Lightning Stone: ;It has no description.
+[Fire, Wind] Here are the descriptions of Fire and Wind:;;* Fire: Rachel, orange-haired woman, bursts into flames.;* Wind: Andy, no description.
+[Rachel, Andy, Francis] Here are the descriptions of Rachel, Andy, and Francis:;;* Rachel: Orange-haired woman.;* Andy: No description.;* Francis: No description.
+[non-Qi] Here is a sentence describing non-Qi in less than 100 letters:;;Non-Qi users have limited power.
+[Pure White Qi] Here is a full sentence describing Pure White Qi in less than 100 letters:;Pure White Qi appears as a bright white energy.
+[the Qi-Master] The Qi-Master is an old man in white robes.
+[Demon Lord's] Here is a full sentence with less than 100 letters describing the Demon Lord's appearance, dressing, and character: ;Demon Lord has no description.
+[Number 1] Number 1 is a Dark Guard with silver laser fixtures, white light armor, and orange glowing cannons.
+[Lich King] Lich King: No description.
+[Lich] The Lich is a massive skull-faced creature with dark cloak and scythe.
+[Lich King's] The Lich King is a massive skull-faced skeleton, 40 meters tall, wearing a dark cloak with a silver scythe.
+[Scythe] This is a massive update post for the story "Dungeon Diver". I'll summarize the key points:;;**Story Update**;;The chapter ends with Jay and his teammates celebrating their victory over the enemy forces. Jay creates a throne made of silver swords, symbolizing their triumph, and tells his team to enjoy the celebration while he worries about tomorrow. They plan to visit Sector 1 together to bring the good news.;;**Post-Chapter Status Update**;;Jay's stats have increased significantly:;;* Level: 2199;* HP: 11000/11000;* MP: 11000/11000;* Strength: 277,931 (total);* Speed: 257,914 (total);* Agility: 242,237 (total);* Defense: 170,863 (total);* Mental Strength: 408,645 (total);;**Skills and Items**;;Jay has acquired new skills, including:;;* Combat Magic [Superior Dark Summoning];* Craftsmanship [Mythic Grade];;He has also equipped new items, such as:;;* The Dark Emperor's Blade (+729% Strength, +666% Mental Strength, etc.);* Ring of the Divine (Hidden Ability);;**Author's Note**;;The author invites readers to check out their Patreon page for exclusive content, including custom chapter art and access to chapters 20+ ahead of schedule.;;Overall, this update post provides a detailed summary of Jay's current stats, skills, and equipment, as well as a brief preview of the next part of the story.
+[Strength][+666% Mental] This is a massive update from the story "Dungeon Diver". I'll summarize the key points:;;**Story Update**;;The chapter concludes with Jay and his teammates celebrating their victory over the enemy forces. Jay creates a throne made of silver swords, symbolizing their triumph, and invites his team to celebrate while he worries about tomorrow's challenges.;;**Post-Chapter Status Update**;;Jay's status is updated, showing his current level, HP, MP, and stats:;;* Level: 2199;* HP: 11000/11000;* MP: 11000/11000;* Strength: 277,931 (total);* Speed: 257,914 (total);* Agility: 242,237 (total);* Defense: 170,863 (total);* Mental Strength: 408,645 (total);;**Skills and Items**;;Jay's skills are listed, including new additions like "Superior Dark Summoning" and "Craftsmanship". His items equipped include the "Dark Emperor's Blade", "Cloak of Total Darkness", and "Ring of the Divine".;;**New Items and Skills**;;The "Dark Emperor's Blade" is a powerful sword created by Jay using his craftsmanship skill. It has impressive stats, including +729% Strength and +666% Mental Strength.;;The "Ring of the Divine" is a mysterious item with a hidden ability.;;**Author's Note**;;The author invites readers to check out their Patreon page for exclusive content, including custom chapter art and access to chapters 20+ ahead of schedule.
+[Demon Lord] Here is a sentence with less than 100 letters describing the Demon Lord: ;Demon Lord has no appearance described.
+[The Flame Emperor's Army] The Flame Emperor's Army has no description.
+[Golden Aura] Here is a full sentence describing Golden Aura in less than 100 letters:;Golden Aura leaks from eyes, covering arms and blades.
+[Skill Orb] Here is a full sentence with less than 100 letters describing the Skill Orb:;The Skill Orb is a mythic-grade item.
+[Dan Striker's] Dan Striker has no description.
+[the Crimson City] Crimson City appears normal.
+[Ray Anderson][C-Class][Grade] This is a long passage from a fantasy novel called "Dungeon Diver". The story follows Jay, the main character, as he experiments with creating a defensive barrier for his city using soul energy and blood-bonded materials. Here's a summary of what happens in this passage:;;Jay meets with a contact who provides him with fake IDs, which will help him maintain his cover. He also receives a paper with information on crafting methods that might be useful to him.;;Jay then conducts experiments in the desert using high-grade items and soul energy infused blood to create a defensive barrier. He tests the barrier with two subjects: one who is connected to him through a link of loyalty, and another who is not. The results show that the barrier allows those connected to Jay to pass through unharmed, while harming those who are not.;;Encouraged by these results, Jay decides to scale up his experiment using a blood-bonded material called Infinite Essence of Regeneration. He shapes it into a large dome and infuses it with soul energy, creating a massive red barrier that covers an area 100m in diameter.;;The tests continue, and Jay confirms that the barrier works as intended. He then lets the barrier dissipate and reforms the Infinite Essence of Regeneration into a small ring that fits on his finger. The ring now glows red and leaks soul energy at a steady rate.;;Jay takes notes on his experiments and stores them in his item storage. He realizes that he needs to recover his soul energy, which will take about two hours. To do this, he consumes Qi pills and mana crystals.;;Finally, Jay heads to meet with his elemental army for a day of MCP farming ( likely a type of training or combat exercise). He also plans to visit Monk at the monastery in Valor City to obtain more Qi pills, which will help him attempt to create a stable barrier that covers his entire settlement.;;The passage ends with an author's note, inviting readers to support the author on Patreon and access additional content, including custom chapter art.
+[Ray] This is a long and detailed passage from the story "Dungeon Diver". Here's a summary of what happens:;;Jay, the main character, obtains two IDs from a contact named Monk and uses them to disguise himself. He then experiments with crafting a barrier using soul energy infused blood and A-Grade shielding. After several attempts, he successfully creates a small dome-shaped barrier that allows people with a link of loyalty to him to pass through unharmed, while harming those who don't have the link.;;Jay expands the barrier to a larger size using his blood-bonded Infinite Essence of Regeneration, which is a malleable silver substance. He shapes it into a large dome and imbues it with soul energy, creating a massive red dome that covers a significant area. The barrier remains stable even after the silver metal disappears, and Jay is able to control its strength by adding or removing soul energy.;;Jay tests the barrier with two subjects, one who has a link of loyalty to him and another who doesn't. The results confirm that the barrier only allows those with the link to pass through unharmed. Jay is satisfied with the results and realizes that he can use this technology to create a large-scale defense system for his city.;;The passage ends with Jay taking notes on his experiments, storing them in his item storage, and preparing to meet with his elemental army for a day of MCP farming. He also plans to visit Monk at the monastery in Valor City to obtain more Qi pills, which he needs to attempt creating a stable barrier that covers the entire settlement.;;Overall, this passage showcases Jay's resourcefulness and creativity as he experiments with new technologies and pushes the boundaries of what is possible in his world.
+[Emrie] This is a long and detailed passage from the story "Dungeon Diver". I'll summarize the key points:;;**Jay's experiments**: Jay, the protagonist, conducts experiments to create a defensive barrier for his city. He uses high-grade items, blood infused with soul energy, and his own regeneration abilities to test different materials.;;**Successful experiment**: After several failed attempts, Jay successfully creates a red dome-shaped barrier using a sheet of A-Grade shielding and soul energy-infused blood. The barrier allows people with a link of loyalty to Jay (e.g., those connected through his buff) to pass through unharmed, while others are repelled or harmed.;;**Scaling up**: Jay realizes he needs to create a much larger barrier to protect the entire city. He uses his blood-bonded Infinite Essence of Regeneration, a malleable silver substance, to form a large dome shape. The resulting barrier is impressive, and Jay tests its properties with two subjects: one connected to him through loyalty and another who is not.;;**Results**: The barrier works as intended, allowing the loyal subject to pass through while harming the other. Jay refines his technique, making the barrier stronger by adding more soul energy.;;**Next steps**: Jay plans to create a massive barrier to cover the entire city, using his Infinite Essence of Regeneration and scaling up his experiment. He also needs to recover his spent soul energy, which will take about two hours.;;**Preparations for future experiments**: Jay takes notes on his experiments, adding to the collective knowledge of craftsmen. He decides to visit Monk at the monastery in Valor City to acquire more Qi pills, necessary for attempting to create a stable barrier that covers the entire settlement.;;Overall, this passage showcases Jay's resourcefulness and determination as he works towards creating a powerful defensive system for his city.
+[Carson] Carson is a middle-aged man with dark features.
+[Sector] Sector is not a character, but rather a location. However, based on the context, I can provide a description of the Sector leaders mentioned:;; Sector 2 Leader is the protagonist, wearing a black helmet, with a static disguised voice. ; Sector 3 has no leader described.; Sector 4 has no leader described, but the protagonist was sent there for a mission.
+[Maylack] Here is a full sentence describing Maylack with less than 100 letters:;Maylack is a large man with defensive armor and legendary skills.
+[Jackpot] Jackpot has no description.
+[Emrie Carter] Emrie Carter is a Fire Wielder with no description.
+[Fire Wielder] Here is a full sentence with less than 100 letters describing Fire Wielder Ember: ;Ember is a Fire Wielder, fighting with fists and pure fire magic.
+[Jamie] Jamie is a tall bearded guard with two large silver axes strapped to his back.
+[Ray, Emrie] Here are the descriptions of Ray and Emrie:;;* Ray: No detailed description.;* Emrie: No detailed description.
+[Ray!] Here is a full sentence with less than 100 letters describing Ray: ;Ray wears no described outfit.
+[Leo a few days ago] Here is a full sentence with less than 100 letters describing Leo: ;Leo has no description.
+[Callum] It seems like Jay and Ember have successfully gamed the system at the roulette table, using Jay's mythic grade dual wielding skill to predict and control the trajectory of the ball. They've won a total of 6 tokens, which is enough to get them into a basic room or potentially even a designer suite.;;The white-haired healer woman, who seems to be from the same region as the two men that Ember and Jay helped earlier, has taken notice of their unusual winning streak and is trying to figure out how they did it. She's offering to share information about the exams in exchange for tokens, suggesting that they could all pitch in together to get into a 10-token lounge.;;Jay seems hesitant at first, but the woman's offer of sharing information could be valuable, especially since Jay and Ember are still trying to learn more about the exams and how they work. The fact that she mentions that two people can stay in a designer suite together also raises some interesting possibilities for Jay and Ember's accommodations.;;It will be interesting to see how Jay responds to the woman's offer and whether he decides to trust her or not. Will he take her up on her proposal and try to learn more about the exams, or will he decide to keep his distance and focus on his own goals? The story is full of possibilities at this point!
+[Natalie] Natalie is a white-haired woman with a pale complexion.
+[Nat] Nat is a white-haired woman with a pale complexion.
+[Silca] Here is a full sentence with less than 100 letters describing Silca: ;Silca has no description.
+[Marcie] Marcie is a woman from Talton Region with a spear and armor.
+[Dane] Dane is a wind-type hunter with a calm demeanor.
+[Robert] Here is a full sentence describing Robert in less than 100 letters:;Robert is an old man, possibly sick, living in a red or yellow house.
+[Natalie waving] Natalie waves with one hand.
+[An Apex Hunter] Here is a full sentence with less than 100 letters describing an Apex Hunter: ;An Apex Hunter wears standard issue uniform.
+[Anderson] Anderson is a Bedrock hunter with no detailed description.
+[Reynard] Reynard is bald, wears stone armor, and carries a longsword.
+[The Flame Emperor's] The Flame Emperor has no description.
+[Emrie Carter's] Emrie Carter has dark flames and a grin.
+[Mack] Mack is not described.
+[Flame Emperor Illusions] Flame Emperor Illusions has no description.
+[Lightning Mage] Lightning Mage Trax wears a chest plate.
+[Nat Self-Regeneration] Nat has no description.
+[Natalie Sterling] Natalie Sterling is a winner with no description.
+[Ray Anderson's] Ray Anderson is not described.
+[Limiter] Here is a full sentence with less than 100 letters describing Limiter: ;Limiter is an invisible barrier controlling mana.
+[Greater] Greater form is a meter-tall glowing being.
+[Celia] Celia is a beautiful woman with long purple hair.
+[Cloak] Here is a full sentence with less than 100 letters describing Cloak's appearance: ;Cloak is black.
+[Hunter Ray Anderson] Hunter Ray Anderson has no description.
+[Sil] Here is a full sentence describing Sil with less than 100 letters: ;Sil is an old man with long white hair and a beard.
+[the Shadow Summon] Here is a full sentence with less than 100 letters describing the Shadow Summon:;The Shadow Summon has no distinct appearance, dressing, or character described.
+[Astral Spears] Astral Spears is a mythic-grade skill allowing creation of invisible spears.
+[I'll] I'll is not described.

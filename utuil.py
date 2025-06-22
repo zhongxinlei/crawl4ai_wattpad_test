@@ -1,6 +1,7 @@
 import unicodedata
 import re
 from pathlib import Path
+import os
 
 def unicode_clean(text):
     """
@@ -99,48 +100,35 @@ def process_polished_text(text: str) -> str:
 
 
 # 能从文件夹中遍历文件，找到英文字符并列出来，同时列出来出现在哪个文件
-def find_english_characters(folder_path, file_extensions=None):
-    """
-    在文件夹中查找包含英文字符的文件，并列出这些字符及其出现的文件
-    参数:
-        folder_path (str): 要搜索的文件夹路径
-        file_extensions (list, optional): 要搜索的文件扩展名列表，如['.txt', '.py']。如果为None，则搜索所有文件
-    """
-    folder = Path(folder_path)
-    if not folder.is_dir():
-        print(f"错误: {folder_path} 不是一个有效的文件夹路径")
-        return
-    # 匹配英文字符（包括大小写字母）
-    english_char_pattern = re.compile(r'[a-zA-Z]')
-    results = {}
+def find_english_chars_in_files(folder_path):
     # 遍历文件夹中的所有文件
-    for file_path in folder.rglob('*'):
-        if file_path.is_file():
-            # 检查文件扩展名
-            if file_extensions and file_path.suffix.lower() not in file_extensions:
-                continue
+    for root, dirs, files in os.walk(folder_path):
+        for file in files:
+            file_path = os.path.join(root, file)
             try:
-                with open(file_path, 'r', encoding='utf-8', errors='ignore') as file:
-                    content = file.read()
-                    english_chars = []
-                    # 检查每个字符
-                    for i, char in enumerate(content):
-                        if english_char_pattern.match(char):
-                            english_chars.append((i, char))
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                    # 提取所有英文字符（包括空格和标点，可根据需要调整）
+                    english_chars = re.findall(r'[a-zA-Z]+', content)
+                    # 处理连续单词
+                    current_word = None
+                    for word in english_chars:
+                        if current_word is None:
+                            current_word = word
+                        else:
+                            # 假设连续单词是指字母连续（如 "abc" 和 "bcd" 连续）
+                            # 这里简化为直接拼接，可根据需求调整逻辑
+                            current_word += ' ' + word
+                    # 输出结果
                     if english_chars:
-                        results[str(file_path)] = english_chars
+                        print(f"File: {file_path}")
+                        if current_word:
+                            print(f"  English words: {current_word}")
+                        else:
+                            for word in english_chars:
+                                print(f"  English word: {word}")
             except Exception as e:
-                print(f"处理文件 {file_path} 时出错: {e}")
-    # 输出结果
-    if results:
-        print("找到包含英文字符的文件:")
-        for file_path, chars in results.items():
-            print(f"\n文件: {file_path}")
-            print("英文字符位置和字符:")
-            for pos, char in chars:
-                print(f"  位置 {pos}: '{char}'")
-    else:
-        print("在文件夹中未找到包含英文字符的文件")
+                print(f"Error reading {file_path}: {e}")
 
 # 能从文件夹中遍历文件，找到所有的指定字符串和出现的文件名，如果需要将所有指定字符串替换成目标字符串
 def find_and_replace_in_files(folder_path, search_string, replace_string=None, file_extensions=None):
@@ -199,5 +187,5 @@ def find_and_replace_in_files(folder_path, search_string, replace_string=None, f
 
 
 if __name__ == "__main__":
-    find_and_replace_in_files('./raw_novel_test', 'Ace')
-    # find_english_characters('./polished')
+    find_and_replace_in_files('./polished', 'The Shield','盾牌')
+    # find_english_chars_in_files('./polished')
