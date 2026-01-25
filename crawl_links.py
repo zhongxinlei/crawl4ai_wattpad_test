@@ -10,8 +10,8 @@ from bs4 import BeautifulSoup
 import os
 import re
 
-link_url = "https://www.wattpad.com/story/361808758-ch399%2B-continued-dungeon-diver-stealing-a"
-novel_name = "Dungeon-Diver-3"
+link_url = "https://www.wattpad.com/story/21067756-enhancement"
+novel_name = "enhancement"
 output_path = f"link_folder/{novel_name}_output.jsonl"
 jsonl_path = f"link_folder/{novel_name}_output.jsonl"
 raw_novel_path = "raw_novel/"

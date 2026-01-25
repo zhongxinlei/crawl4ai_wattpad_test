@@ -24,9 +24,6 @@ class WattpadProcessor:
         # 初始化翻译器（使用备用方案）
         self.translator = Translator()
 
-        self.raw_translator = pipeline("translation_en_to_zh",
-                     model="/home/lane/ai/models/nlp/translation/Helsinki-NLP-en-zh")
-
         # 初始化漫画描述生成器
         self.summarizer = pipeline(
             "summarization",

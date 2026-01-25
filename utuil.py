@@ -53,6 +53,16 @@ def has_chinese_or_english(s):
     return False
 
 
+def process_tencent_HY(text: str) -> str:
+    # Use regular expression to find text between <|extra_0|> and <|eos|>
+    match = re.search(r'<\|extra_0\|>(.*?)<\|eos\|>', text)
+    if match:
+        extracted_text = match.group(1)
+        return extracted_text
+    else:
+        print("No matching text found.")
+        return ''
+
 def process_polished_text(text: str) -> str:
     """
     处理文本：去标签 + 按句子换行
