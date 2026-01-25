@@ -9,6 +9,9 @@ from litellm import completion
 import asyncio
 from pathlib import Path
 from  utuil import *
+from flair.data import Sentence
+from flair.models import SequenceTagger
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 raw_novel_path = 'raw_novel_test/'
 os.environ['LITELLM_LOG'] = 'DEBUG'
@@ -19,21 +22,28 @@ Kay_role_name = 'Jay'
 class WattpadProcessor:
     def __init__(self):
         # 初始化NLP模型
-        self.nlp = spacy.load("en_core_web_lg")
+        # self.nlp = spacy.load("en_core_web_lg")
+        self.tagger = SequenceTagger.load("flair/ner-english-large")
 
         # 初始化翻译器（使用备用方案）
         self.translator = Translator()
 
         # 初始化漫画描述生成器
-        self.summarizer = pipeline(
-            "summarization",
-            # model="facebook/bart-large-cnn",
-            model="/home/lane/ai/models/facebook/bart",
-            device=1 if torch.cuda.is_available() else -1
-        )
+        # self.summarizer = pipeline(
+        #     "summarization",
+        #     # model="facebook/bart-large-cnn",
+        #     model="/home/lane/ai/models/facebook/bart",
+        #     device=1 if torch.cuda.is_available() else -1
+        # )
 
         # 初始化翻译记忆库
         self.translations = self._load_translations()
+
+        #following only useful when do translation process
+        model_name_or_path = "tencent/HY-MT1.5-7B"
+        self.translator_tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
+        self.translator_model = AutoModelForCausalLM.from_pretrained(model_name_or_path, device_map="auto")
+
 
     def _load_translations(self):
         """加载已有的翻译记忆"""
@@ -52,21 +62,24 @@ class WattpadProcessor:
 
     async def process_entities(self, text):
         """处理实体识别和翻译"""
-        doc = self.nlp(text)
+        # doc = self.nlp(text)
+        sentence = Sentence(text)
+        self.tagger.predict(sentence)
         new_translations = {}
 
-        for ent in doc.ents:
-            if ent.label_ in ['PERSON', 'GPE']:
-                # 更新翻译记忆库
-                ent_text = unicode_clean(ent.text)
-                if ent_text not in self.translations:
-                    zh_name = await self._translate_name(ent_text)
-                    self.translations[ent_text] = zh_name
-                    new_translations[ent_text] = zh_name
+        for entity in sentence.get_spans('ner'):
+            # 更新翻译记忆库
+            ent_text = unicode_clean(entity.text)
+            ent_label = unicode_clean(entity.tag)
+            tag_text = ent_label + '->' + ent_text
+            if tag_text not in self.translations:
+                zh_name = await self._translate_name(ent_text)
+                self.translations[tag_text] = zh_name
+                new_translations[tag_text] = zh_name
 
-                # 保存人物描述
-                if ent.label_ == 'PERSON':
-                    await self._save_character_description(ent_text, text)
+            # 保存人物描述
+            # if ent.label_ == 'PERSON':
+            #     await self._save_character_description(ent_text, text)
 
         # 保存新增翻译
         if new_translations:

@@ -23,5 +23,5 @@ tokenized_chat = tokenizer.apply_chat_template(
 outputs = model.generate(tokenized_chat.to(model.device), max_new_tokens=2048)
 output_text = tokenizer.decode(outputs[0])
 print(output_text)
-print('------------------------------------------------------')
+print('-----------------------------------------------------------------------')
 print(process_tencent_HY(output_text))
