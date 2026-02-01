@@ -17,7 +17,6 @@ raw_novel_path = 'raw_novel_test/'
 os.environ['LITELLM_LOG'] = 'DEBUG'
 comic_descriptions_chunk_size = 700
 polish_chunk_size = 1500
-Kay_role_name = 'Jay'
 
 class WattpadProcessor:
     def __init__(self):
@@ -26,7 +25,7 @@ class WattpadProcessor:
         self.tagger = SequenceTagger.load("flair/ner-english-large")
 
         # 初始化翻译器（使用备用方案）
-        self.translator = Translator()
+        # self.translator = Translator()
 
         # 初始化漫画描述生成器
         # self.summarizer = pipeline(
@@ -89,9 +88,20 @@ class WattpadProcessor:
 
     async def _translate_name(self, name):
         """翻译专有名词（带缓存）"""
+        messages = [
+            {"role": "user",
+             "content": f"Translate the following segment into Chinese, without additional explanation.\n\n{name}"},
+        ]
         try:
-            translated_name = await self.translator.translate(name,src='en',dest='zh-cn')
-            return translated_name.text
+            tokenized_chat = self.translator_tokenizer.apply_chat_template(
+                messages,
+                tokenize=True,
+                add_generation_prompt=False,
+                return_tensors="pt"
+            )
+            outputs = self.translator_model.generate(tokenized_chat.to(self.translator_model.device), max_new_tokens=2048)
+            translated_name = self.translator_tokenizer.decode(outputs[0])
+            return process_tencent_HY(translated_name)
         except Exception as e:
             print(f'_translate_name exception: {e}')
             return name
@@ -167,7 +177,6 @@ class WattpadProcessor:
         char_count = 0
 
         for sent in sentences:
-            sent.replace('\n', ';').replace('I ', f'{Kay_role_name} ').replace('Jayyy', f'{Kay_role_name}').replace('I\'ll', f'{Kay_role_name} will')
             sent_len = len(sent)
             if char_count + sent_len > chunk_size and current_chunk:
                 chunks.append(' '.join(current_chunk))
@@ -224,29 +233,41 @@ class WattpadProcessor:
             # 替换专有名词
             translated_para = para
             for en, zh in self.translations.items():
-                translated_para = translated_para.replace(en, zh)
+                en_no_label = split_if_contains(en, '->')
+                translated_para = translated_para.replace(en_no_label, zh)
             if not has_chinese_or_english(translated_para):
                 print(f'translated_para has no chinese, english or number: {translated_para}')
                 continue
 
             # 翻译段落
             try:
-                # result = await self.translator.translate(translated_para, dest='zh-cn')
-                prompt = f"""
-                            you are a expert in translator from english to Chinese, please translate the given text,
-                            if there is any non English in the given text, please do not translate them and keep them there without change.
-                            if there is any line that can not be translated in the given text, please ignore it and return a space.
-                            output must be the translated text directly, do not give anything else, do not include `<think>` part.
-                            output must be Simplified Chinese Mandarin.
-                            text：
-                            {translated_para}
-                            """
-                # api_key=None, api_base="http://localhost:11434", model="ollama/llama3.3:70b", max_tokens=20000
-                # api_key = "sk-b12ef3f919ab4f54ae1905e645762a40", api_base = "https://api.deepseek.com/v1", model = "deepseek/deepseek-chat", max_tokens=8192
-                result = await self._call_llm_api(
-                    prompt,
-                    api_key=None, api_base="http://localhost:11434", model="ollama/llama3.3:70b", max_tokens=20000
+                # prompt = f"""
+                #             you are a expert in translator from english to Chinese, please translate the given text,
+                #             if there is any non English in the given text, please do not translate them and keep them there without change.
+                #             if there is any line that can not be translated in the given text, please ignore it and return a space.
+                #             output must be the translated text directly, do not give anything else, do not include `<think>` part.
+                #             output must be Simplified Chinese Mandarin.
+                #             text：
+                #             {translated_para}
+                #             """
+                # result = await self._call_llm_api(
+                #     prompt,
+                #     api_key=None, api_base="http://localhost:11434", model="ollama/llama3.3:70b", max_tokens=20000
+                # )
+                messages = [
+                    {"role": "user",
+                     "content": f"Translate the following segment into Chinese, without additional explanation.\n\n{translated_para}"},
+                ]
+                tokenized_chat = self.translator_tokenizer.apply_chat_template(
+                    messages,
+                    tokenize=True,
+                    add_generation_prompt=False,
+                    return_tensors="pt"
                 )
+
+                outputs = self.translator_model.generate(tokenized_chat.to(self.translator_model.device), max_new_tokens=2048)
+                output_text = self.translator_tokenizer.decode(outputs[0])
+                result = process_tencent_HY(output_text)
                 if '翻译' in result:
                     print('warn!!!!!!!!!!!!!!!!!!!!!!!!!!!!, 句子中含有翻译字样')
 
@@ -317,6 +338,9 @@ class WattpadProcessor:
             clean_title = process_polished_text(title)
             clean_title = re.sub(r'[\\/:*?"<>|]', '', clean_title).strip()
             clean_title = clean_title.replace('《','').replace('》', '')
+            if len(clean_title) > 50:
+                print('too long title!')
+                clean_title = 'too long title'
             # 保存结果
             output_file = f"polished/{chapter_num}_{clean_title}.txt"
             with open(output_file, 'w') as f:
@@ -347,10 +371,10 @@ class WattpadProcessor:
 async def main(chapter_name, chapter_content, processor):
     tasks = []
     print(f"\n📖 正在处理第 {chapter_name} 章（{len(chapter_content)} 字符）")
-    await processor.process_entities(chapter_content)
+    # await processor.process_entities(chapter_content)
     # tasks.append(asyncio.create_task(processor.generate_comic_descriptions(chapter_content, chapter_name)))
     # tasks.append(asyncio.create_task(processor.translate_content(chapter_content, chapter_name)))
-    # tasks.append(asyncio.create_task(processor.polish_translation(chapter_name)))
+    tasks.append(asyncio.create_task(processor.polish_translation(chapter_name)))
     # with tqdm_asyncio(total=len(tasks), desc="处理进度") as pbar:
     #     for task in asyncio.as_completed(tasks):
     #         await task

@@ -140,6 +140,18 @@ def find_english_chars_in_files(folder_path):
             except Exception as e:
                 print(f"Error reading {file_path}: {e}")
 
+
+def split_if_contains(origin_str: str, sig: str):
+    try:
+        parts = origin_str.split(sig)
+        if len(parts) > 1:
+            return parts[1]
+        else:
+            return origin_str
+    except Exception as e:
+        print(f"split_if_contains {sig}: {e}")
+
+
 # 能从文件夹中遍历文件，找到所有的指定字符串和出现的文件名，如果需要将所有指定字符串替换成目标字符串
 def find_and_replace_in_files(folder_path, search_string, replace_string=None, file_extensions=None):
     """
@@ -197,5 +209,5 @@ def find_and_replace_in_files(folder_path, search_string, replace_string=None, f
 
 
 if __name__ == "__main__":
-    find_and_replace_in_files('./polished', 'The Shield','盾牌')
-    # find_english_chars_in_files('./polished')
+    # find_and_replace_in_files('./translated', 'PrintPad','')
+    find_english_chars_in_files('./polished')
