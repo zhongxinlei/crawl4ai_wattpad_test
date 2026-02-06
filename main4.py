@@ -14,34 +14,22 @@ from flair.models import SequenceTagger
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 raw_novel_path = 'raw_novel_test/'
+raw_translated_path = 'translated/'
 os.environ['LITELLM_LOG'] = 'DEBUG'
 comic_descriptions_chunk_size = 700
 polish_chunk_size = 1500
 
 class WattpadProcessor:
     def __init__(self):
-        # 初始化NLP模型
-        # self.nlp = spacy.load("en_core_web_lg")
-        self.tagger = SequenceTagger.load("flair/ner-english-large")
 
-        # 初始化翻译器（使用备用方案）
-        # self.translator = Translator()
-
-        # 初始化漫画描述生成器
-        # self.summarizer = pipeline(
-        #     "summarization",
-        #     # model="facebook/bart-large-cnn",
-        #     model="/home/lane/ai/models/facebook/bart",
-        #     device=1 if torch.cuda.is_available() else -1
-        # )
-
-        # 初始化翻译记忆库
         self.translations = self._load_translations()
 
-        #following only useful when do translation process
-        model_name_or_path = "tencent/HY-MT1.5-7B"
-        self.translator_tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
-        self.translator_model = AutoModelForCausalLM.from_pretrained(model_name_or_path, device_map="auto")
+        # 初始化NLP模型
+        # self.tagger = SequenceTagger.load("flair/ner-english-large")
+
+        # model_name_or_path = "tencent/HY-MT1.5-7B"
+        # self.translator_tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
+        # self.translator_model = AutoModelForCausalLM.from_pretrained(model_name_or_path, device_map="auto")
 
 
     def _load_translations(self):
@@ -241,19 +229,6 @@ class WattpadProcessor:
 
             # 翻译段落
             try:
-                # prompt = f"""
-                #             you are a expert in translator from english to Chinese, please translate the given text,
-                #             if there is any non English in the given text, please do not translate them and keep them there without change.
-                #             if there is any line that can not be translated in the given text, please ignore it and return a space.
-                #             output must be the translated text directly, do not give anything else, do not include `<think>` part.
-                #             output must be Simplified Chinese Mandarin.
-                #             text：
-                #             {translated_para}
-                #             """
-                # result = await self._call_llm_api(
-                #     prompt,
-                #     api_key=None, api_base="http://localhost:11434", model="ollama/llama3.3:70b", max_tokens=20000
-                # )
                 messages = [
                     {"role": "user",
                      "content": f"Translate the following segment into Chinese, without additional explanation.\n\n{translated_para}"},
@@ -282,6 +257,38 @@ class WattpadProcessor:
 
         self._save_translation(translated, chapter_num)
 
+
+    async def translate_title(self, chapter_num):
+        """翻译章节内容"""
+        parts = chapter_num.split(' ', 1)
+        str1, str2 = parts[0], parts[1]
+        try:
+            messages = [
+                {"role": "user",
+                 "content": f"Translate the following segment into Chinese, without additional explanation.\n\n{str2}"},
+            ]
+            tokenized_chat = self.translator_tokenizer.apply_chat_template(
+                messages,
+                tokenize=True,
+                add_generation_prompt=False,
+                return_tensors="pt"
+            )
+
+            outputs = self.translator_model.generate(tokenized_chat.to(self.translator_model.device), max_new_tokens=2048)
+            output_text = self.translator_tokenizer.decode(outputs[0])
+            result = process_tencent_HY(output_text)
+            if '翻译' in result:
+                print('warn!!!!!!!!!!!!!!!!!!!!!!!!!!!!, 句子中含有翻译字样')
+
+            if result and len(result) > 0:
+                translated_title = new_title = f"{str1} {result}.txt"
+                if os.path.exists('translated/' + chapter_num + '_translated.txt'):
+                    os.rename('translated/' + chapter_num + '_translated.txt', 'translated/' + translated_title)
+                    print(f"文件已重命名为: {translated_title}")
+        except Exception as e:
+            print(f"title翻译失败: {str(e)}")
+
+
     def _save_translation(self, content, chapter_num):
         """保存翻译结果"""
         filename = f"translated/{chapter_num}_translated.txt"
@@ -291,7 +298,7 @@ class WattpadProcessor:
 
     async def polish_translation(self, chapter_num):
         """润色翻译结果（需替换为实际API调用）"""
-        input_file = f"translated/{chapter_num}_translated.txt"
+        input_file = f"translated/{chapter_num}"
 
         try:
             with open(input_file, 'r') as f:
@@ -331,20 +338,24 @@ class WattpadProcessor:
             clean_polished = process_polished_text(polished)
 
             # 生成标题
-            title = await self._call_llm_api(
-                f"Generate a contextually appropriate Chinese title for the provided content. title shall be no more than 15 characters：\n{clean_polished}",
-                api_key=None, api_base="http://localhost:11434", model="ollama/llama3.3:70b", max_tokens=20000
-            )
-            clean_title = process_polished_text(title)
-            clean_title = re.sub(r'[\\/:*?"<>|]', '', clean_title).strip()
-            clean_title = clean_title.replace('《','').replace('》', '')
-            if len(clean_title) > 50:
-                print('too long title!')
-                clean_title = 'too long title'
+            # title = await self._call_llm_api(
+            #     f"Generate a contextually appropriate Chinese title for the provided content. title shall be no more than 15 characters：\n{clean_polished}",
+            #     api_key=None, api_base="http://localhost:11434", model="ollama/llama3.3:70b", max_tokens=20000
+            # )
+            # clean_title = process_polished_text(title)
+            # clean_title = re.sub(r'[\\/:*?"<>|]', '', clean_title).strip()
+            # clean_title = clean_title.replace('《','').replace('》', '')
+            # if len(clean_title) > 50:
+            #     print('too long title!')
+            #     clean_title = 'too long title'
             # 保存结果
-            output_file = f"polished/{chapter_num}_{clean_title}.txt"
+            # output_file = f"polished/{chapter_num}_{clean_title}.txt"
+            # with open(output_file, 'w') as f:
+            #     f.write(f"\t\t{clean_title}\n\n{clean_polished}")
+
+            output_file = f"polished/{chapter_num}"
             with open(output_file, 'w') as f:
-                f.write(f"\t\t{clean_title}\n\n{clean_polished}")
+                f.write(f"\t\t{chapter_num}\n\n{clean_polished}")
 
         except Exception as e:
             print(f"润色失败: {str(e)}")
@@ -374,6 +385,7 @@ async def main(chapter_name, chapter_content, processor):
     # await processor.process_entities(chapter_content)
     # tasks.append(asyncio.create_task(processor.generate_comic_descriptions(chapter_content, chapter_name)))
     # tasks.append(asyncio.create_task(processor.translate_content(chapter_content, chapter_name)))
+    # tasks.append(asyncio.create_task(processor.translate_title(chapter_name)))
     tasks.append(asyncio.create_task(processor.polish_translation(chapter_name)))
     # with tqdm_asyncio(total=len(tasks), desc="处理进度") as pbar:
     #     for task in asyncio.as_completed(tasks):
@@ -383,10 +395,17 @@ async def main(chapter_name, chapter_content, processor):
     print("\n✅ 处理完成！结果保存在 crawl_wattpad/ 目录中")
 
 
+
+
+
+
+
 if __name__ == "__main__":
+
     processor = WattpadProcessor()
     print(f'processor created: {processor}')
-    folder_path = Path(raw_novel_path)
+    folder_path = Path(raw_translated_path)
+    print(folder_path)
     for file_path in sorted(folder_path.glob("*")):
         try:
             # 使用utf-8编码打开文件

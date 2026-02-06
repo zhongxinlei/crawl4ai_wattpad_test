@@ -208,6 +208,8 @@ def find_and_replace_in_files(folder_path, search_string, replace_string=None, f
         print(f"在文件夹中未找到包含 '{search_string}' 的文件")
 
 
+
+
 if __name__ == "__main__":
-    # find_and_replace_in_files('./translated', 'PrintPad','')
-    find_english_chars_in_files('./polished')
+    find_and_replace_in_files('./polished', 'API',None)
+    # find_english_chars_in_files('./polished')

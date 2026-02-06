@@ -10,8 +10,8 @@ from bs4 import BeautifulSoup
 import os
 import re
 
-link_url = "https://www.wattpad.com/story/21067756-enhancement"
-novel_name = "enhancement"
+link_url = "https://www.wattpad.com/story/260798747-empyrean-iris-story-collection-vol-2"
+novel_name = "EmpyreanIrisStoryCollection2"
 output_path = f"link_folder/{novel_name}_output.jsonl"
 jsonl_path = f"link_folder/{novel_name}_output.jsonl"
 raw_novel_path = "raw_novel/"
@@ -108,6 +108,12 @@ async def extract_crypto_prices():
         data = json.loads(result.extracted_content)
         print(f"Extracted {len(data)} chapters")
         print(json.dumps(data[0], indent=2) if data else "No data found")
+
+        if len(data) > 0:
+            for i in range (0, len(data) -1):
+                data[i]['chapter_name']= 'Chapter_' + str(i+1) + ' ' + data[i]['chapter_name']
+
+
         with open(output_path, "w", encoding="utf-8") as f:
             if isinstance(data, list):
                 # 如果 data 是列表，遍历每个对象
@@ -189,7 +195,7 @@ async def crawl_novel(chapter_name, url):
             data = json.loads(result.extracted_content)
             print(f"Extracted {len(data)} chapters")
             print(json.dumps(data[0], indent=2) if data else "No data found")
-            if len(data) < 50 and chapter_name != 'Chapter 200':
+            if len(data) < 50:
                 print(f'data length less than 50! need double check: {chapter_name}')
             # else:
             content = ''
